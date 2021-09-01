@@ -38,7 +38,11 @@
   "homepage": "https://github.com/cheminfo/base64-tools#readme",
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "data.ts"
+    ]
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
