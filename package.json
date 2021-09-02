@@ -1,7 +1,7 @@
 {
-  "name": "base64-tools",
+  "name": "uint8-base64",
   "version": "0.0.0",
-  "description": "Encode and decode base64 from and to uint8 and arraybuffer",
+  "description": "Encode and decode base64 from and to Uint8Array",
   "main": "./lib/index.js",
   "module": "./lib-esm/index.js",
   "types": "./lib/index.d.ts",
@@ -30,12 +30,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cheminfo/base64-tools.git"
+    "url": "git+https://github.com/cheminfo/uint8-base64.git"
   },
   "bugs": {
-    "url": "https://github.com/cheminfo/base64-tools/issues"
+    "url": "https://github.com/cheminfo/uint8-base64/issues"
   },
-  "homepage": "https://github.com/cheminfo/base64-tools#readme",
+  "homepage": "https://github.com/cheminfo/uint8-base64#readme",
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
