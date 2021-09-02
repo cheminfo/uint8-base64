@@ -2,7 +2,7 @@
 
 const { Buffer } = require('buffer');
 
-const { decodeBufferToBuffer, encodeBufferToBuffer } = require('../lib/');
+const { decode, encode } = require('../lib/');
 
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
@@ -32,11 +32,11 @@ const bufferFrom = Buffer.from(bufferToString, 'base64');
 console.timeEnd('Buffer.from');
 
 console.time('encode');
-const bufferBase64 = encodeBufferToBuffer(uint8);
+const bufferBase64 = encode(uint8);
 console.timeEnd('encode');
 
 console.time('decode');
-const newBuffer = decodeBufferToBuffer(bufferBase64);
+const newBuffer = decode(bufferBase64);
 console.timeEnd('decode');
 
 const newString = decoder.decode(newBuffer);
@@ -49,6 +49,7 @@ console.log(
   bufferBase64.length,
   bufferToString.length,
   btoaString.length,
+  btoaString === decoder.decode(bufferBase64),
   newString === string,
   newString === atobString,
   newString === decoder.decode(bufferFrom),

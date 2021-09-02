@@ -1,8 +1,9 @@
 export const tests = [
-  ['', ''],
-  ['TWFu', 'Man'],
-  ['SGVsbG8gd29ybGQ=', 'Hello world'],
-  ['SGVsbG8gd29ybGRzIQ==', 'Hello worlds!'],
+  //  ['', ''],
+  // ['TWFu', 'Man'],
+  ['QQ==', 'A'],
+  // ['SGVsbG8gd29ybGQ=', 'Hello world'],
+  //['SGVsbG8gd29ybGRzIQ==', 'Hello worlds!'],
 ];
 
 export const allBytes = new Uint8Array(256);

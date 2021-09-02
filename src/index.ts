@@ -1,2 +1,2 @@
-export * from './decodeBufferToBuffer';
-export * from './encodeBufferToBuffer';
+export * from './decode';
+export * from './encode';

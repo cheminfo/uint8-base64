@@ -1,8 +1,3 @@
-/**
- * My module
- * @returns A very important number
- */
-
 const base64codes = Uint8Array.from([
   65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
   84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
@@ -10,7 +5,7 @@ const base64codes = Uint8Array.from([
   122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47,
 ]);
 
-export function encodeBufferToBuffer(input: Uint8Array): Uint8Array {
+export function encode(input: Uint8Array): Uint8Array {
   const output = new Uint8Array(Math.ceil(input.length / 3) * 4);
   let i, j;
   for (i = 2, j = 0; i < input.length; i += 3, j += 4) {

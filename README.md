@@ -16,7 +16,7 @@ However we could not find one that would have as input AND output an ArrayBuffer
 ## Usage
 
 ```js
-import { encodeBufferToBuffer } from 'base64-tools';
+import { encode } from 'base64-tools';
 
 const result = myModule(args);
 // result is ...
