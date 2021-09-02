@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://www.github.com/cheminfo/uint8-base64/compare/v0.1.0...v0.1.1) (2021-09-02)
+
+
+### Bug Fixes
+
+* README ([c9fbb13](https://www.github.com/cheminfo/uint8-base64/commit/c9fbb1312cc67df92b056e1267ff050220437c2e))
+
 ## 0.1.0 (2021-09-02)
 
 
