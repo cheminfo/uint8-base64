@@ -17,11 +17,22 @@ This library is pretty fast and will convert over 500 Mb per second in nodejs as
 
 ## Usage
 
+### encode
+
 ```js
 import { encode } from 'uint8-base64';
 
-const result = myModule(args);
-// result is ...
+const result = encode(Uint8Array.from([65])); // an array containing 'A'
+// result is Uint8Array(4) [ 81, 81, 61, 61 ] ('QQ==')
+```
+
+### decode
+
+```js
+import { decode } from '..';
+
+const result = decode(Uint8Array.from([81, 81, 61, 61])); // an array containing 'QQ=='
+// result is Uint8Array(1) [ 65 ] ('A')
 ```
 
 ## License
