@@ -5,6 +5,11 @@ const base64codes = Uint8Array.from([
   122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47,
 ]);
 
+/**
+ * Convert a Uint8Array containing bytes to a Uint8Array containing the base64 encoded values
+ * @returns a Uint8Array containing the encoded bytes
+ */
+
 export function encode(input: Uint8Array): Uint8Array {
   const output = new Uint8Array(Math.ceil(input.length / 3) * 4);
   let i, j;

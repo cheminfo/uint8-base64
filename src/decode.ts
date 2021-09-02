@@ -1,9 +1,3 @@
-/**
- *
- * @param arrayBuffer
- * @returns
- */
-
 const base64codes = Uint8Array.from([
   255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
   255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
@@ -13,6 +7,11 @@ const base64codes = Uint8Array.from([
   21, 22, 23, 24, 25, 255, 255, 255, 255, 255, 255, 26, 27, 28, 29, 30, 31, 32,
   33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
 ]);
+
+/**
+ * Convert a Uint8Array containing a base64 encoded bytes to a Uint8Array containing decoded values
+ * @returns a Uint8Array containing the decoded bytes
+ */
 
 export function decode(
   input: Uint8Array, //| ArrayBuffer,
