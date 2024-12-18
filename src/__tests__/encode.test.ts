@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { encode } from '..';
 
 import { tests, allBytes, base64AllBytes } from './data';

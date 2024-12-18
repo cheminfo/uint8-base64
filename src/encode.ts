@@ -7,6 +7,7 @@ const base64codes = Uint8Array.from([
 
 /**
  * Convert a Uint8Array containing bytes to a Uint8Array containing the base64 encoded values
+ * @param input
  * @returns a Uint8Array containing the encoded bytes
  */
 

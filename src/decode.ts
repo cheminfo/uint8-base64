@@ -10,6 +10,7 @@ const base64codes = Uint8Array.from([
 
 /**
  * Convert a Uint8Array containing a base64 encoded bytes to a Uint8Array containing decoded values
+ * @param input
  * @returns a Uint8Array containing the decoded bytes
  */
 
@@ -24,11 +25,10 @@ export function decode(
     throw new Error('Unable to parse base64 string.');
   }
 
-  let output = new Uint8Array(3 * (input.length / 4));
+  const output = new Uint8Array(3 * (input.length / 4));
   if (input.length === 0) return output;
 
-  const missingOctets =
-    input[input.length - 2] === 61 ? 2 : input[input.length - 1] === 61 ? 1 : 0;
+  const missingOctets = input.at(-2) === 61 ? 2 : input.at(-1) === 61 ? 1 : 0;
 
   for (let i = 0, j = 0; i < input.length; i += 4, j += 3) {
     const buffer =
