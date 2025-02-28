@@ -15,7 +15,7 @@ If you need at the end a text rather than an Uint8Array it is also extremely fas
 
 ```js
 const base64 = encode(bytes);
-const string = new TextDecoder().decode(base64);
+const string = new TextDecoder('utf8').decode(base64);
 ```
 
 ## Installation
@@ -44,13 +44,13 @@ const bytes = new Uint8Array(256 * 1024 * 1024).map((_, i) =>
 
 console.time('base64');
 const base64 = encode(bytes);
-const string = new TextDecoder().decode(base64);
+const string = new TextDecoder('utf8').decode(base64);
 console.timeEnd('base64');
 
 console.log(string.slice(0, 100));
 ```
 
-This code takes 330ms on my MacBook pro M4 to encode 256Mb of data. The encoding itself takes 230ms while the conversion to text takes 100ms.
+This code takes 330ms on my MacBook pro M4 to encode 256Mb of data. The encoding itself takes 240ms while the conversion to text takes 50ms.
 
 ### decode
 

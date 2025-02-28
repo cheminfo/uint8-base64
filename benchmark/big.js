@@ -1,11 +1,9 @@
-'use strict';
-
-const { Buffer } = require('buffer');
+const { Buffer } = require('node:buffer');
 
 const { decode, encode } = require('../lib/');
 
 const textEncoder = new TextEncoder();
-const textDecoder = new TextDecoder();
+const textDecoder = new TextDecoder('utf8');
 
 let string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNIOQRSTUVWXYZ';
 for (let i = 0; i < 20; i++) {
