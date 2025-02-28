@@ -7,9 +7,16 @@
 
 You can find a lot of NPM libraries dealing with base64 encoding and decoding.
 
-However we could not find one that would have as input AND output an Uint8Array. This library does exactly this.
+However, we could not find one that would have as input AND output an Uint8Array. This library does exactly this.
 
-This library is pretty fast and will convert over 500 Mb per second in nodejs as well as in the browser.
+This library is pretty fast and will convert over 500 Mb per second in NodeJS as well as in the browser.
+
+If you need at the end a text rather than an Uint8Array it is also extremely fast to convert the Uint8Array to text using a TextEncoder:
+
+```js
+const base64 = encode(bytes);
+const string = new TextDecoder().decode(base64);
+```
 
 ## Installation
 
@@ -43,7 +50,7 @@ console.timeEnd('base64');
 console.log(string.slice(0, 100));
 ```
 
-This code takes 325ms on my macbook pro M4 to encode 256Mb of data.
+This code takes 330ms on my MacBook pro M4 to encode 256Mb of data. The encoding itself takes 230ms while the conversion to text takes 100ms.
 
 ### decode
 
