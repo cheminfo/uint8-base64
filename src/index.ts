@@ -1,2 +1,4 @@
 export * from './decode';
-export * from './encode';
+export { encodeFast as encode } from './encodeFast';
+export * from './encodeClassical';
+export * from './encodeFast';
