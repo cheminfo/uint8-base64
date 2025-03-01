@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.0](https://github.com/cheminfo/uint8-base64/compare/v0.1.1...v1.0.0) (2025-03-01)
+
+
+### release-as
+
+* 1.0.0 ([1d604ee](https://github.com/cheminfo/uint8-base64/commit/1d604ee083cc050f0ff4c555170d6d02c9efffa3))
+
+
+### Features
+
+* improve speed for large files of 35% ([25a2729](https://github.com/cheminfo/uint8-base64/commit/25a27290327e4977cd4dabfaf6ebd0699771466d))
+
 ### [0.1.1](https://www.github.com/cheminfo/uint8-base64/compare/v0.1.0...v0.1.1) (2021-09-02)
 
 
