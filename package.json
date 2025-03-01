@@ -1,6 +1,6 @@
 {
   "name": "uint8-base64",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Encode and decode base64 to and from Uint8Array",
   "main": "./lib/index.js",
   "module": "./lib-esm/index.js",
