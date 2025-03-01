@@ -1,132 +1,25 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>uint8-base64</title>
-	<meta name="description" content="Documentation for uint8-base64">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">uint8-base64</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>uint8-base64</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#uint8-base64" id="uint8-base64" style="color: inherit; text-decoration: none;">
-					<h1>uint8-base64</h1>
-				</a>
-				<p><a href="https://www.npmjs.com/package/uint8-base64"><img src="https://img.shields.io/npm/v/uint8-base64.svg" alt="NPM version"></a>
-					<a href="https://github.com/cheminfo/uint8-base64/actions?query=workflow%3A%22Node.js+CI%22"><img src="https://github.com/cheminfo/uint8-base64/workflows/Node.js%20CI/badge.svg?branch=main" alt="build status"></a>
-					<a href="https://codecov.io/gh/cheminfo/uint8-base64"><img src="https://img.shields.io/codecov/c/github/cheminfo/uint8-base64.svg" alt="Test coverage"></a>
-				<a href="https://www.npmjs.com/package/uint8-base64"><img src="https://img.shields.io/npm/dm/uint8-base64.svg" alt="npm download"></a></p>
-				<p>You can find a lot of NPM libraries dealing with base64 encoding and decoding.</p>
-				<p>However we could not find one that would have as input AND output an Uint8Array. This library does exactly this.</p>
-				<p>This library is pretty fast and will convert over 500 Mb per second in nodejs as well as in the browser.</p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
-				</a>
-				<p><code>$ npm i uint8-base64</code></p>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h2>Usage</h2>
-				</a>
-				<a href="#encode" id="encode" style="color: inherit; text-decoration: none;">
-					<h3>encode</h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">encode</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;uint8-base64&#039;</span><span style="color: #000000">;</span>
+<!DOCTYPE html><html class="default" lang="en" data-base="."><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>uint8-base64</title><meta name="description" content="Documentation for uint8-base64"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search"><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">uint8-base64</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>uint8-base64</h1></div><div class="tsd-panel tsd-typography"><a id="uint8-base64" class="tsd-anchor"></a><h1 class="tsd-anchor-link">uint8-base64<a href="#uint8-base64" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1><p><a href="https://www.npmjs.com/package/uint8-base64"><img src="https://img.shields.io/npm/v/uint8-base64.svg" alt="NPM version"></a>
+<a href="https://github.com/cheminfo/uint8-base64/actions?query=workflow%3A%22Node.js+CI%22"><img src="https://github.com/cheminfo/uint8-base64/workflows/Node.js%20CI/badge.svg?branch=main" alt="build status"></a>
+<a href="https://codecov.io/gh/cheminfo/uint8-base64"><img src="https://img.shields.io/codecov/c/github/cheminfo/uint8-base64.svg" alt="Test coverage"></a>
+<a href="https://www.npmjs.com/package/uint8-base64"><img src="https://img.shields.io/npm/dm/uint8-base64.svg" alt="npm download"></a></p>
+<p>You can find a lot of NPM libraries dealing with base64 encoding and decoding.</p>
+<p>However, we could not find one that would have as input AND output an Uint8Array. This library does exactly this.</p>
+<p>This library is pretty fast and will convert over 500 Mb per second in NodeJS as well as in the browser.</p>
+<p>If you need at the end a text rather than an Uint8Array it is also extremely fast to convert the Uint8Array to text using a TextEncoder:</p>
+<pre><code class="js"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">base64</span><span class="hl-1"> = </span><span class="hl-3">encode</span><span class="hl-1">(</span><span class="hl-4">bytes</span><span class="hl-1">);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">string</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">TextDecoder</span><span class="hl-1">(</span><span class="hl-5">&#39;utf8&#39;</span><span class="hl-1">).</span><span class="hl-3">decode</span><span class="hl-1">(</span><span class="hl-4">base64</span><span class="hl-1">);</span>
+</code><button type="button">Copy</button></pre>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #795E26">encode</span><span style="color: #000000">(</span><span style="color: #267F99">Uint8Array</span><span style="color: #000000">.</span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">65</span><span style="color: #000000">])); </span><span style="color: #008000">// an array containing &#039;A&#039;</span>
-<span style="color: #008000">// result is Uint8Array(4) [ 81, 81, 61, 61 ] (&#039;QQ==&#039;)</span>
-</code></pre>
-				<a href="#decode" id="decode" style="color: inherit; text-decoration: none;">
-					<h3>decode</h3>
-				</a>
-				<pre><code class="language-js"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">decode</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;..&#039;</span><span style="color: #000000">;</span>
+<a id="installation" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Installation<a href="#installation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p><code>$ npm i uint8-base64</code></p>
+<a id="usage" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Usage<a href="#usage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="encode-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link">encode<a href="#encode-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="js"><span class="hl-6">import</span><span class="hl-1"> { </span><span class="hl-4">encode</span><span class="hl-1"> } </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-5">&#39;uint8-base64&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">result</span><span class="hl-1"> = </span><span class="hl-3">encode</span><span class="hl-1">(</span><span class="hl-4">Uint8Array</span><span class="hl-1">.</span><span class="hl-3">from</span><span class="hl-1">([</span><span class="hl-7">65</span><span class="hl-1">])); </span><span class="hl-8">// an array containing &#39;A&#39;</span><br/><span class="hl-8">// result is Uint8Array(4) [ 81, 81, 61, 61 ] (&#39;QQ==&#39;)</span>
+</code><button type="button">Copy</button></pre>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">result</span><span style="color: #000000"> = </span><span style="color: #795E26">decode</span><span style="color: #000000">(</span><span style="color: #267F99">Uint8Array</span><span style="color: #000000">.</span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">81</span><span style="color: #000000">, </span><span style="color: #098658">81</span><span style="color: #000000">, </span><span style="color: #098658">61</span><span style="color: #000000">, </span><span style="color: #098658">61</span><span style="color: #000000">])); </span><span style="color: #008000">// an array containing &#039;QQ==&#039;</span>
-<span style="color: #008000">// result is Uint8Array(1) [ 65 ] (&#039;A&#039;)</span>
-</code></pre>
-				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
-					<h2>License</h2>
-				</a>
-				<p>The code was largely inspired by: <a href="https://gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727">https://gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727</a></p>
-				<p><a href="./LICENSE">MIT</a></p>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Exports</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-function">
-						<a href="modules.html#decode" class="tsd-kind-icon">decode</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#encode" class="tsd-kind-icon">encode</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer>
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-		</div>
-	</div>
-</footer>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+<a id="encoding-to-text-speed-test" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Encoding to text speed test<a href="#encoding-to-text-speed-test" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="js"><span class="hl-6">import</span><span class="hl-1"> { </span><span class="hl-4">encode</span><span class="hl-1"> } </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-5">&#39;uint8-base64&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">bytes</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">Uint8Array</span><span class="hl-1">(</span><span class="hl-7">256</span><span class="hl-1"> * </span><span class="hl-7">1024</span><span class="hl-1"> * </span><span class="hl-7">1024</span><span class="hl-1">).</span><span class="hl-3">map</span><span class="hl-1">((</span><span class="hl-4">_</span><span class="hl-1">, </span><span class="hl-4">i</span><span class="hl-1">) </span><span class="hl-0">=&gt;</span><br/><span class="hl-1">  </span><span class="hl-4">Math</span><span class="hl-1">.</span><span class="hl-3">floor</span><span class="hl-1">(</span><span class="hl-4">Math</span><span class="hl-1">.</span><span class="hl-3">random</span><span class="hl-1">() * </span><span class="hl-7">256</span><span class="hl-1">),</span><br/><span class="hl-1">);</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-3">time</span><span class="hl-1">(</span><span class="hl-5">&#39;base64&#39;</span><span class="hl-1">);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">base64</span><span class="hl-1"> = </span><span class="hl-3">encode</span><span class="hl-1">(</span><span class="hl-4">bytes</span><span class="hl-1">);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">string</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">TextDecoder</span><span class="hl-1">(</span><span class="hl-5">&#39;utf8&#39;</span><span class="hl-1">).</span><span class="hl-3">decode</span><span class="hl-1">(</span><span class="hl-4">base64</span><span class="hl-1">);</span><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-3">timeEnd</span><span class="hl-1">(</span><span class="hl-5">&#39;base64&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-4">console</span><span class="hl-1">.</span><span class="hl-3">log</span><span class="hl-1">(</span><span class="hl-4">string</span><span class="hl-1">.</span><span class="hl-3">slice</span><span class="hl-1">(</span><span class="hl-7">0</span><span class="hl-1">, </span><span class="hl-7">100</span><span class="hl-1">));</span>
+</code><button type="button">Copy</button></pre>
+
+<p>This code takes 330ms on my MacBook pro M4 to encode 256Mb of data. The encoding itself takes 240ms while the conversion to text takes 50ms.</p>
+<a id="decode-1" class="tsd-anchor"></a><h3 class="tsd-anchor-link">decode<a href="#decode-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="js"><span class="hl-6">import</span><span class="hl-1"> { </span><span class="hl-4">decode</span><span class="hl-1"> } </span><span class="hl-6">from</span><span class="hl-1"> </span><span class="hl-5">&#39;..&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">result</span><span class="hl-1"> = </span><span class="hl-3">decode</span><span class="hl-1">(</span><span class="hl-4">Uint8Array</span><span class="hl-1">.</span><span class="hl-3">from</span><span class="hl-1">([</span><span class="hl-7">81</span><span class="hl-1">, </span><span class="hl-7">81</span><span class="hl-1">, </span><span class="hl-7">61</span><span class="hl-1">, </span><span class="hl-7">61</span><span class="hl-1">])); </span><span class="hl-8">// an array containing &#39;QQ==&#39;</span><br/><span class="hl-8">// result is Uint8Array(1) [ 65 ] (&#39;A&#39;)</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="license" class="tsd-anchor"></a><h2 class="tsd-anchor-link">License<a href="#license" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>The code was largely inspired by: <a href="https://gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727">https://gist.github.com/enepomnyaschih/72c423f727d395eeaa09697058238727</a></p>
+<p><a href="media/LICENSE">MIT</a></p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#uint8-base64"><span>uint8-<wbr/>base64</span></a><ul><li><a href="#installation"><span>Installation</span></a></li><li><a href="#usage"><span>Usage</span></a></li><li><ul><li><a href="#encode-1"><span>encode</span></a></li><li><a href="#encoding-to-text-speed-test"><span>Encoding to text speed test</span></a></li><li><a href="#decode-1"><span>decode</span></a></li></ul></li><li><a href="#license"><span>License</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">uint8-base64</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>
