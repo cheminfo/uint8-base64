@@ -35,28 +35,27 @@ for (let i = 0; i < 64; i++) {
 
 export function encodeFast(input: Uint8Array): Uint8Array {
   const output32 = new Uint32Array(Math.ceil(input.length / 3));
-  const output8 = new Uint8Array(output32.buffer);
   let i, j;
   for (i = 2, j = 0; i < input.length; i += 3, j++) {
     output32[j] =
       base64codes1[input[i - 2] | ((input[i - 1] & 0xf0) << 4)] |
       base64codes2[input[i] | ((input[i - 1] & 0x0f) << 8)];
   }
-  const index = j * 4;
   if (i === input.length + 1) {
     // 1 octet yet to write
-    output8[index] = base64codes[input[i - 2] >> 2];
-    output8[index + 1] = base64codes[(input[i - 2] & 0x03) << 4];
-    output8[index + 2] = 61;
-    output8[index + 3] = 61;
+    output32[j] =
+      base64codes[input[i - 2] >> 2] |
+      (base64codes[(input[i - 2] & 0x03) << 4] << 8) |
+      (15677 << 16);
   }
   if (i === input.length) {
     // 2 octets yet to write
-    output8[index] = base64codes[input[i - 2] >> 2];
-    output8[index + 1] =
-      base64codes[((input[i - 2] & 0x03) << 4) | (input[i - 1] >> 4)];
-    output8[index + 2] = base64codes[(input[i - 1] & 0x0f) << 2];
-    output8[index + 3] = 61;
+    output32[j] =
+      base64codes[input[i - 2] >> 2] |
+      (base64codes[((input[i - 2] & 0x03) << 4) | (input[i - 1] >> 4)] << 8) |
+      (base64codes[(input[i - 1] & 0x0f) << 2] << 16) |
+      (61 << 24);
   }
+  const output8 = new Uint8Array(output32.buffer);
   return output8;
 }
