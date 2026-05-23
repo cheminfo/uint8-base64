@@ -1,24 +1,22 @@
-import { describe, expect, it } from 'vitest';
+import { expect, test } from 'vitest';
 
-import { encode } from '..';
+import { encode } from '../index.ts';
 
-import { tests, allBytes, base64AllBytes } from './data';
+import { allBytes, base64AllBytes, tests } from './data.ts';
 
 const textEncoder = new TextEncoder();
 
-describe('encode', () => {
-  it.each(tests)('%s -> %s', (base64: string, binary: string) => {
-    const encodedBinary = textEncoder.encode(binary);
-    const encodedBase64 = textEncoder.encode(base64);
-    expect(Array.from(encode(encodedBinary))).toStrictEqual(
-      Array.from(encodedBase64),
-    );
-  });
+test.each(tests)('%s -> %s', (base64, binary) => {
+  const encodedBinary = textEncoder.encode(binary);
+  const encodedBase64 = textEncoder.encode(base64);
 
-  it('All possibles values', () => {
-    const encodedBase64 = textEncoder.encode(base64AllBytes);
-    expect(Array.from(encode(allBytes))).toStrictEqual(
-      Array.from(encodedBase64),
-    );
-  });
+  expect(Array.from(encode(encodedBinary))).toStrictEqual(
+    Array.from(encodedBase64),
+  );
+});
+
+test('All possibles values', () => {
+  const encodedBase64 = textEncoder.encode(base64AllBytes);
+
+  expect(Array.from(encode(allBytes))).toStrictEqual(Array.from(encodedBase64));
 });

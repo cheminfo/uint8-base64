@@ -11,7 +11,7 @@ However, we could not find one that would have as input AND output an Uint8Array
 
 This library is pretty fast and will convert over 500 Mb per second in NodeJS as well as in the browser.
 
-If you need at the end a text rather than an Uint8Array it is also extremely fast to convert the Uint8Array to text using a TextEncoder:
+If you need at the end a text rather than an Uint8Array it is also extremely fast to convert the Uint8Array to text using a `TextDecoder`:
 
 ```js
 const base64 = encode(bytes);
@@ -21,6 +21,10 @@ const string = new TextDecoder('utf8').decode(base64);
 ## Installation
 
 `$ npm i uint8-base64`
+
+This package is published as ESM only. CommonJS consumers need Node.js
+≥ 20.19, ≥ 22.12, or any 24.x or later (which support `require()` of
+synchronous ESM); otherwise switch to `import`.
 
 ## Usage
 
@@ -55,7 +59,7 @@ This code takes 330ms on my MacBook pro M4 to encode 256Mb of data. The encoding
 ### decode
 
 ```js
-import { decode } from '..';
+import { decode } from 'uint8-base64';
 
 const result = decode(Uint8Array.from([81, 81, 61, 61])); // an array containing 'QQ=='
 // result is Uint8Array(1) [ 65 ] ('A')

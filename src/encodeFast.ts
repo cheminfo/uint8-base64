@@ -1,4 +1,4 @@
-import { base64codes } from './base64codes';
+import { base64codes } from './base64codes.ts';
 
 /*
 3 bytes are encoded in 4 bytes of base64
@@ -14,7 +14,7 @@ const base64codes1 = new Uint32Array(64 * 64);
 for (let i = 0; i < 64; i++) {
   for (let j = 0; j < 64; j++) {
     const index = (i << 2) | ((j & 0x30) >> 4) | ((j & 0x0f) << 8);
-    base64codes1[index] = base64codes[i] | (base64codes[j] << 8);
+    base64codes1[index] = base64codes[i]! | (base64codes[j]! << 8);
   }
 }
 
@@ -23,14 +23,17 @@ const base64codes2 = new Uint32Array(64 * 64);
 for (let i = 0; i < 64; i++) {
   for (let j = 0; j < 64; j++) {
     const index = (i << 6) | j;
-    base64codes2[index] = (base64codes[i] << 16) | (base64codes[j] << 24);
+    base64codes2[index] = (base64codes[i]! << 16) | (base64codes[j]! << 24);
   }
 }
 
 /**
- * Convert a Uint8Array containing bytes to a Uint8Array containing the base64 encoded values
- * @param input
- * @returns a Uint8Array containing the encoded bytes
+ * Encode bytes to base64 using two precomputed 12-bit lookup tables to emit
+ * 4 output bytes (one 32-bit word) per 3 input bytes. This is the default
+ * `encode` exported from the package.
+ * @param input - Uint8Array of raw bytes to encode.
+ * @returns a Uint8Array containing the base64 representation (one byte per
+ *   ASCII character, padded with `=` to a length that is a multiple of 4).
  */
 
 export function encodeFast(input: Uint8Array): Uint8Array {
@@ -38,22 +41,23 @@ export function encodeFast(input: Uint8Array): Uint8Array {
   let i, j;
   for (i = 2, j = 0; i < input.length; i += 3, j++) {
     output32[j] =
-      base64codes1[input[i - 2] | ((input[i - 1] & 0xf0) << 4)] |
-      base64codes2[input[i] | ((input[i - 1] & 0x0f) << 8)];
+      base64codes1[input[i - 2]! | ((input[i - 1]! & 0xf0) << 4)]! |
+      base64codes2[input[i]! | ((input[i - 1]! & 0x0f) << 8)]!;
   }
   if (i === input.length + 1) {
     // 1 octet yet to write
     output32[j] =
-      base64codes[input[i - 2] >> 2] |
-      (base64codes[(input[i - 2] & 0x03) << 4] << 8) |
+      base64codes[input[i - 2]! >> 2]! |
+      (base64codes[(input[i - 2]! & 0x03) << 4]! << 8) |
       (15677 << 16);
   }
   if (i === input.length) {
     // 2 octets yet to write
     output32[j] =
-      base64codes[input[i - 2] >> 2] |
-      (base64codes[((input[i - 2] & 0x03) << 4) | (input[i - 1] >> 4)] << 8) |
-      (base64codes[(input[i - 1] & 0x0f) << 2] << 16) |
+      base64codes[input[i - 2]! >> 2]! |
+      (base64codes[((input[i - 2]! & 0x03) << 4) | (input[i - 1]! >> 4)]! <<
+        8) |
+      (base64codes[(input[i - 1]! & 0x0f) << 2]! << 16) |
       (61 << 24);
   }
   const output8 = new Uint8Array(output32.buffer);

@@ -1,4 +1,4 @@
-export * from './decode';
-export { encodeFast as encode } from './encodeFast';
-export * from './encodeClassical';
-export * from './encodeFast';
+export * from './decode.ts';
+export { encodeFast as encode } from './encodeFast.ts';
+export * from './encodeClassical.ts';
+export * from './encodeFast.ts';

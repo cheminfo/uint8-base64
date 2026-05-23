@@ -9,9 +9,10 @@ const base64codes = Uint8Array.from([
 ]);
 
 /**
- * Convert a Uint8Array containing a base64 encoded bytes to a Uint8Array containing decoded values
- * @param input
- * @returns a Uint8Array containing the decoded bytes
+ * Decode a base64-encoded byte sequence into the original bytes.
+ * @param input - Uint8Array holding the base64 representation (one byte per
+ *   ASCII character, length must be a multiple of 4, `=` padding allowed).
+ * @returns a Uint8Array containing the decoded bytes.
  */
 
 export function decode(
@@ -32,10 +33,10 @@ export function decode(
 
   for (let i = 0, j = 0; i < input.length; i += 4, j += 3) {
     const buffer =
-      (base64codes[input[i]] << 18) |
-      (base64codes[input[i + 1]] << 12) |
-      (base64codes[input[i + 2]] << 6) |
-      base64codes[input[i + 3]];
+      (base64codes[input[i]!]! << 18) |
+      (base64codes[input[i + 1]!]! << 12) |
+      (base64codes[input[i + 2]!]! << 6) |
+      base64codes[input[i + 3]!]!;
     output[j] = buffer >> 16;
     output[j + 1] = (buffer >> 8) & 0xff;
     output[j + 2] = buffer & 0xff;

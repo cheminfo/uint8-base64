@@ -1,24 +1,24 @@
-import { describe, expect, it } from 'vitest';
+import { expect, test } from 'vitest';
 
-import { encodeClassical } from '../encodeClassical';
+import { encodeClassical } from '../encodeClassical.ts';
 
-import { tests, allBytes, base64AllBytes } from './data';
+import { allBytes, base64AllBytes, tests } from './data.ts';
 
 const textEncoder = new TextEncoder();
 
-describe('encodeClassical', () => {
-  it.each(tests)('%s -> %s', (base64: string, binary: string) => {
-    const encodedBinary = textEncoder.encode(binary);
-    const encodedBase64 = textEncoder.encode(base64);
-    expect(Array.from(encodeClassical(encodedBinary))).toStrictEqual(
-      Array.from(encodedBase64),
-    );
-  });
+test.each(tests)('%s -> %s', (base64, binary) => {
+  const encodedBinary = textEncoder.encode(binary);
+  const encodedBase64 = textEncoder.encode(base64);
 
-  it('All possibles values', () => {
-    const encodedBase64 = textEncoder.encode(base64AllBytes);
-    expect(Array.from(encodeClassical(allBytes))).toStrictEqual(
-      Array.from(encodedBase64),
-    );
-  });
+  expect(Array.from(encodeClassical(encodedBinary))).toStrictEqual(
+    Array.from(encodedBase64),
+  );
+});
+
+test('All possibles values', () => {
+  const encodedBase64 = textEncoder.encode(base64AllBytes);
+
+  expect(Array.from(encodeClassical(allBytes))).toStrictEqual(
+    Array.from(encodedBase64),
+  );
 });
