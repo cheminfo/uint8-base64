@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/cheminfo/uint8-base64/compare/v1.0.0...v2.0.0) (2026-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* package is now ESM-only; consumers using require() must migrate to import, or run Node.js >= 20.19, >= 22.12, or any 24.x or later.
+
+### Features
+
+* migrate package to ESM TypeScript ([c0889ba](https://github.com/cheminfo/uint8-base64/commit/c0889ba98c5ff645c07777e324ee1517c5400b1c))
+
 ## [1.0.0](https://github.com/cheminfo/uint8-base64/compare/v0.1.1...v1.0.0) (2025-03-01)
 
 
