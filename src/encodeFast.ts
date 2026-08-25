@@ -1,4 +1,5 @@
 import { base64codes } from './base64codes.ts';
+import { encodeClassical } from './encodeClassical.ts';
 
 /*
 3 bytes are encoded in 4 bytes of base64
@@ -8,6 +9,11 @@ But in order still to avoid one operation we will create 2 of those lookup table
 - One for 2222 11111122
 - One for 3333 33444444
 */
+
+// The output is assembled as 32-bit words and handed back as bytes, so its byte
+// order is the platform's. On a big-endian machine every group of 4 would come
+// out reversed, and the byte-wise encoder is used instead.
+const IS_LITTLE_ENDIAN = new Uint8Array(new Uint32Array([1]).buffer)[0] === 1;
 
 // 2222 11111122
 const base64codes1 = new Uint32Array(64 * 64);
@@ -37,6 +43,8 @@ for (let i = 0; i < 64; i++) {
  */
 
 export function encodeFast(input: Uint8Array): Uint8Array {
+  if (!IS_LITTLE_ENDIAN) return encodeClassical(input);
+
   const output32 = new Uint32Array(Math.ceil(input.length / 3));
   let i, j;
   for (i = 2, j = 0; i < input.length; i += 3, j++) {
