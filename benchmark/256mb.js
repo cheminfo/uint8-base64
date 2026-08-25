@@ -1,10 +1,16 @@
 import Benchmark from 'benchmark';
+import { XSadd } from 'ml-xsadd';
 
 import { encodeClassical, encodeFast } from '../src/index.ts';
 
+const generator = new XSadd(0);
 const bytes = new Uint8Array(256 * 1024 * 1024);
-for (let i = 0; i < bytes.length; i++) {
-  bytes[i] = i % 256;
+for (let i = 0; i < bytes.length; i += 4) {
+  const value = generator.getUint32();
+  bytes[i] = value;
+  bytes[i + 1] = value >>> 8;
+  bytes[i + 2] = value >>> 16;
+  bytes[i + 3] = value >>> 24;
 }
 
 console.log(
