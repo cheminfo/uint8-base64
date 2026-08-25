@@ -1,9 +1,11 @@
-const { Buffer } = require('node:buffer');
+import { Buffer } from 'node:buffer';
 
-const { decode, encode } = require('../lib/');
+import Benchmark from 'benchmark';
+
+import { decode, encode } from '../src/index.ts';
 
 const textEncoder = new TextEncoder();
-const textDecoder = new TextDecoder('utf8');
+const textDecoder = new TextDecoder('utf-8');
 
 let string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNIOQRSTUVWXYZ';
 for (let i = 0; i < 20; i++) {
@@ -12,43 +14,34 @@ for (let i = 0; i < 20; i++) {
 
 const uint8 = textEncoder.encode(string);
 const buffer = Buffer.from(string, 'utf8');
-
-console.time('btoa');
-const btoaString = btoa(string);
-console.timeEnd('btoa');
-
-console.time('atob');
-const atobString = atob(btoaString);
-console.timeEnd('atob');
-
-console.time('buffer.toString');
-const bufferToString = buffer.toString('base64');
-console.timeEnd('buffer.toString');
-
-console.time('Buffer.from');
-const bufferFrom = Buffer.from(bufferToString, 'base64');
-console.timeEnd('Buffer.from');
-
-console.time('encode');
-const bufferBase64 = encode(uint8);
-console.timeEnd('encode');
-
-console.time('decode');
-const newBuffer = decode(bufferBase64);
-console.timeEnd('decode');
-
-const newString = textDecoder.decode(newBuffer);
+const base64String = buffer.toString('base64');
+const base64Uint8 = encode(uint8);
 
 console.log(
-  string.length,
+  'bytes:',
   uint8.length,
-  atobString.length,
-  bufferFrom.length,
-  bufferBase64.length,
-  bufferToString.length,
-  btoaString.length,
-  btoaString === textDecoder.decode(bufferBase64),
-  newString === string,
-  newString === atobString,
-  newString === textDecoder.decode(bufferFrom),
+  '| encode matches Buffer:',
+  textDecoder.decode(base64Uint8) === base64String,
+  '| decode round-trips:',
+  textDecoder.decode(decode(base64Uint8)) === string,
 );
+
+const options = { minSamples: 30, maxTime: 30 };
+
+new Benchmark.Suite('encode')
+  .add('btoa', () => btoa(string), options)
+  .add('Buffer#toString', () => buffer.toString('base64'), options)
+  .add('encode', () => encode(uint8), options)
+  .on('cycle', (event) => {
+    console.log(String(event.target));
+  })
+  .run();
+
+new Benchmark.Suite('decode')
+  .add('atob', () => atob(base64String), options)
+  .add('Buffer.from', () => Buffer.from(base64String, 'base64'), options)
+  .add('decode', () => decode(base64Uint8), options)
+  .on('cycle', (event) => {
+    console.log(String(event.target));
+  })
+  .run();

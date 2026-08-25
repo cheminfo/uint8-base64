@@ -14,14 +14,14 @@
     "src"
   ],
   "scripts": {
-    "build": "npm run prepack && cheminfo-build --entry lib/index.js --root UintBase64",
+    "build": "npm run tsc && cheminfo-build --entry lib/index.js --root UintBase64",
     "check-types": "tsc --noEmit",
     "clean": "rimraf coverage lib",
-    "eslint": "eslint src",
-    "eslint-fix": "eslint src --fix",
+    "eslint": "eslint .",
+    "eslint-fix": "eslint . --fix",
     "prepack": "npm run tsc",
-    "prettier": "prettier --check src",
-    "prettier-write": "prettier --write src",
+    "prettier": "prettier --check .",
+    "prettier-write": "prettier --write .",
     "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
     "test-only": "vitest run --coverage",
     "tsc": "npm run clean && npm run tsc-build",
@@ -36,15 +36,16 @@
   },
   "homepage": "https://github.com/cheminfo/uint8-base64#readme",
   "devDependencies": {
-    "@types/node": "^25.9.1",
-    "@vitest/coverage-v8": "^4.1.7",
+    "@types/node": "^26.3.0",
+    "@vitest/coverage-v8": "^4.1.11",
     "@zakodium/tsconfig": "^1.0.5",
-    "cheminfo-build": "^1.3.2",
+    "benchmark": "^2.1.4",
+    "cheminfo-build": "^1.4.0",
     "eslint": "^9.39.2",
-    "eslint-config-cheminfo-typescript": "^22.0.0",
-    "prettier": "^3.8.3",
+    "eslint-config-cheminfo-typescript": "^22.1.0",
+    "prettier": "^3.9.6",
     "rimraf": "^6.1.3",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.7"
+    "vitest": "^4.1.11"
   }
 }

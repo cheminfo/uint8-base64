@@ -23,8 +23,8 @@ const string = new TextDecoder('utf8').decode(base64);
 `$ npm i uint8-base64`
 
 This package is published as ESM only. CommonJS consumers need Node.js
-≥ 20.19, ≥ 22.12, or any 24.x or later (which support `require()` of
-synchronous ESM); otherwise switch to `import`.
+≥ 22.12 or any 24.x or later (which support `require()` of synchronous
+ESM); otherwise switch to `import`.
 
 ## Usage
 
