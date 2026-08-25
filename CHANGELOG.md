@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/cheminfo/uint8-base64/compare/v2.0.0...v2.1.0) (2026-08-25)
+
+
+### Features
+
+* use the platform base64 decoder in decode ([527bb3a](https://github.com/cheminfo/uint8-base64/commit/527bb3ab842bfd623bd900e83994cebe278e8958))
+
+
+### Bug Fixes
+
+* encodeFast reversed its output on big-endian platforms ([550c076](https://github.com/cheminfo/uint8-base64/commit/550c0762d02a7df6d2343ee0d35bda8bb04c4c21))
+
 ## [2.0.0](https://github.com/cheminfo/uint8-base64/compare/v1.0.0...v2.0.0) (2026-05-23)
 
 
